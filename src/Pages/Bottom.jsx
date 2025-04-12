@@ -1,6 +1,13 @@
 import React from 'react'
+import { useEffect } from 'react'
+import API from "../api";
 
 const Bottom = () => {
+  useEffect(() => {
+    API.get('/consultations')
+      .then(res => console.log(res.data))
+      .catch(err => console.error(err));
+  }, []);
   return (
   <>
   <div className="w-full py-16 px-4 bg-white">
@@ -38,5 +45,10 @@ const Bottom = () => {
   </>
   )
 }
+
+
+
+
+
 
 export default Bottom
